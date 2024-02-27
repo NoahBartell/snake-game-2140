@@ -1,4 +1,4 @@
-node('App-Server-CWEB2140')
+node('AppServer2')
 {
     def app
     stage('Clone Git')
