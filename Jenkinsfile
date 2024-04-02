@@ -52,6 +52,7 @@ pipeline {
             }
         }
 
+        def app
         stage('POST-TO-DOCKERHUB') {    
             agent {
                 label 'AppServer2'
