@@ -3,7 +3,6 @@ pipeline {
 
  
     stages {
-        def app
         stage('CLONE GIT REPOSITORY') {
             agent {
                 label 'AppServer2'
@@ -50,7 +49,7 @@ pipeline {
             }
             steps {
                 script {
-                    app = docker.build("noahbartell/snake_game_2140")
+                    def app = docker.build("noahbartell/snake_game_2140")
                 }
             }
         }
@@ -63,6 +62,7 @@ pipeline {
             steps {
                 script {
                     docker.withRegistry('https://registry.hub.docker.com', 'dockerhub_credentials') {
+                        def app = docker.build("noahbartell/snake_game_2140")
                         app.push("latest")
                     }
                 }
