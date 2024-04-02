@@ -1,6 +1,6 @@
 pipeline {
     agent none
-    
+    def app
     stages {
         stage('CLONE GIT REPOSITORY') {
             agent {
@@ -48,7 +48,7 @@ pipeline {
             }
             steps {
                 script {
-                    def app = docker.build("noahbartell/snake_game_2140")
+                    app = docker.build("noahbartell/snake_game_2140")
                 }
             }
         }
