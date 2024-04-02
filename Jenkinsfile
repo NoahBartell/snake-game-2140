@@ -1,8 +1,9 @@
 pipeline {
     agent none
 
-    def app
+ 
     stages {
+        def app
         stage('CLONE GIT REPOSITORY') {
             agent {
                 label 'AppServer2'
