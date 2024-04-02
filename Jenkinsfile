@@ -1,6 +1,5 @@
 pipeline {
     agent none
-    def app
     stages {
         stage('CLONE GIT REPOSITORY') {
             agent {
