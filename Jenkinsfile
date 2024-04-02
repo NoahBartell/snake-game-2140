@@ -40,7 +40,7 @@ pipeline {
                 }
             }
         }
-
+        def app
         stage('BUILD-AND-TAG') {
             agent {
                 label 'AppServer2'
@@ -52,7 +52,7 @@ pipeline {
             }
         }
 
-        def app
+        
         stage('POST-TO-DOCKERHUB') {    
             agent {
                 label 'AppServer2'
