@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('CLONE GIT REPOSITORY') {
             agent {
-                label 'App-Server-CWEB2140'
+                label 'AppServer2'
             }
             steps {
                 checkout scm
@@ -42,7 +42,7 @@ pipeline {
 
         stage('BUILD-AND-TAG') {
             agent {
-                label 'App-Server-CWEB2140'
+                label 'AppServer2'
             }
             steps {
                 script {
@@ -53,7 +53,7 @@ pipeline {
 
         stage('POST-TO-DOCKERHUB') {    
             agent {
-                label 'App-Server-CWEB2140'
+                label 'AppServer2'
             }
             steps {
                 script {
@@ -66,7 +66,7 @@ pipeline {
 
         stage('DEPLOYMENT') {    
             agent {
-                label 'App-Server-CWEB2140'
+                label 'AppServer2'
             }
             steps {
                 sh "docker-compose down"
