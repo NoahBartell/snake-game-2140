@@ -5,7 +5,7 @@ pipeline {
     stages {
         stage('CLONE GIT REPOSITORY') {
             agent {
-                label 'AppServer2'
+                label 'App-server'
             }
             steps {
                 checkout scm
@@ -14,7 +14,7 @@ pipeline {
 
         stage('SCA-SAST-SNYK-TEST') {
              agent {
-                label 'AppServer2'
+                label 'App-server'
             }
             steps {
                 script {
@@ -45,7 +45,7 @@ pipeline {
 
         stage('BUILD-AND-TAG') {
             agent {
-                label 'AppServer2'
+                label 'App-server'
             }
             steps {
                 script {
@@ -57,7 +57,7 @@ pipeline {
         
         stage('POST-TO-DOCKERHUB') {    
             agent {
-                label 'AppServer2'
+                label 'App-server'
             }
             steps {
                 script {
@@ -71,7 +71,7 @@ pipeline {
 
         stage('DEPLOYMENT') {    
             agent {
-                label 'AppServer2'
+                label 'App-server'
             }
             steps {
                 sh "docker-compose down"
